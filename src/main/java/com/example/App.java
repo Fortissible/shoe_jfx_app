@@ -43,9 +43,11 @@ public class App extends Application {
         Button submitButton = new Button("Submit");
         submitButton.setOnAction(e -> handleSubmit());
 
+        // FITUR UPDATE & DELETE BUTTON
+        // TODO: NEW LINE MINGGU KE 28 OKTOBER
         Button updateButton = new Button("Update");
         updateButton.setOnAction(e -> handleUpdate());
-
+        // TODO: NEW LINE MINGGU KE 28 OKTOBER
         Button deleteButton = new Button("Delete");
         deleteButton.setOnAction(e -> handleDelete());
 
@@ -60,6 +62,7 @@ public class App extends Application {
         formLayout.add(shoeDescriptionLabel, 0, 4);
         formLayout.add(shoeDescriptionField, 1, 4);
         formLayout.add(submitButton, 0, 5);
+        // TODO: NEW LINE MINGGU KE 28 OKTOBER
         formLayout.add(updateButton, 1, 5);
         formLayout.add(deleteButton, 2, 5);
 
@@ -79,7 +82,7 @@ public class App extends Application {
     private void initDatabaseConnection() throws SQLException {
         String url = "jdbc:postgresql://localhost:5432/shoe_database";
         String user = "postgres";
-        String password = "tuyul123";
+        String password = "PASSWORD_USER";
         connection = DriverManager.getConnection(url, user, password);
     }
 
@@ -161,12 +164,14 @@ public class App extends Application {
         }
     }
 
+    // TODO: NEW LINE MINGGU KE 28 OKTOBER
     private void handleUpdate() {
+        // AMBIL DATA YANG DI KLIK
         String shoeId = shoeIdField.getText();
         String shoeName = shoeNameField.getText();
         int shoePrice = shoePriceField.getValue();
         String shoeDescription = shoeDescriptionField.getText();
-
+        // VALIDASI
         if (!validateFields(shoeId, shoeName, shoeDescription, shoePrice)) return;
 
         try {
@@ -185,6 +190,7 @@ public class App extends Application {
         }
     }
 
+    // TODO: NEW LINE MINGGU KE 28 OKTOBER
     private void handleDelete() {
         String shoeId = shoeIdField.getText();
         if (shoeId.isEmpty()) {
